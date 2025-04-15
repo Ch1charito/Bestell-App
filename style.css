@@ -5,6 +5,9 @@
     position: relative;
     scroll-behavior: smooth;
   }
+  html{
+    font-family: "Varela Round", sans-serif;
+  }
 
   header{
     background-color: #ff8008;
@@ -20,14 +23,35 @@
   main{
     display: flex;
     #restaurant{
-        background-color: yellow;
         width: calc(100% - 308px);
         height: 800px;
+        img{
+            height: 400px;
+            width: 100%;
+        }
+        h2{
+            margin-top: 16px;
+        }
+        p{
+            color: #ff8008;
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
+        #essen-bild{
+            height: 200px;
+            width: 998px;
+            object-fit: cover;
+
+        }
     }
     #shop-cart{
         background-color: aqua;
         width: 308px;
         height: 800px;
+    }
+    .einrücken{
+        margin-left: 16px;
+        margin-right: 16px;
     }
   }
   footer{
