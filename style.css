@@ -24,10 +24,13 @@
     display: flex;
     #restaurant{
         width: calc(100% - 308px);
-        height: 800px;
+        @media (max-width: 600px){
+            width: 100%;
+        }
         img{
             height: 400px;
             width: 100%;
+            object-fit: cover;
         }
         h2{
             margin-top: 16px;
@@ -39,15 +42,20 @@
         }
         #essen-bild{
             height: 200px;
-            width: 998px;
+            width: calc(100% - 32px);
             object-fit: cover;
-
+        }
+        h3{
+            margin-top: 16px;
+            margin-bottom: 16px;
         }
     }
     #shop-cart{
         background-color: aqua;
         width: 308px;
-        height: 800px;
+        @media (max-width: 600px){
+            display: none;
+        }
     }
     .einrücken{
         margin-left: 16px;
