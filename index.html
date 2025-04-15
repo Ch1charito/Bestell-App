@@ -20,7 +20,7 @@
     />
 
 </head>
-<body>
+<body onload="renderHauptgerichte()">
     <header>
         <img src="./img/Logo/Logo.png" alt="Logo">
     </header>
@@ -29,12 +29,12 @@
             <img src="./img/main/strand.jpg" alt="Restaurant-Bild">
             <div class="einrücken">
                 <h2>La Dolce Vita</h2>
-                <p>Bewertung (4,8 von 5 Sternen)</p>
+                <span>Bewertung (4,8 von 5 Sternen)</span>
             </div>
-            <div class="einrücken">Antipasti-Vorspeisen, Hauptgerichte, Dolce-Nachspeisen</div>
+            <div class="einrücken abstand">Antipasti-Vorspeisen, Hauptgerichte, Dolce-Nachspeisen</div>
             <img class="einrücken" id="essen-bild" src="./img/main/vongole.jpg" alt="Essen-Bild">
             <h3 class="einrücken">Hauptgerichte</h3>
-            <div class="einrücken" id="hauptgerichte-content">hier soll reingerendert werden</div>
+            <div class="einrücken" id="hauptgerichte-content"></div>
         </div>
         <div id="shop-cart">Warenkorb</div>
     </main>

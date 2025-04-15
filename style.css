@@ -35,7 +35,7 @@
         h2{
             margin-top: 16px;
         }
-        p{
+        span{
             color: #ff8008;
             margin-top: 8px;
             margin-bottom: 16px;
@@ -49,6 +49,10 @@
             margin-top: 16px;
             margin-bottom: 16px;
         }
+        .name-button{
+            display: flex;
+            justify-content: space-between;
+        }
     }
     #shop-cart{
         background-color: aqua;
@@ -61,6 +65,17 @@
         margin-left: 16px;
         margin-right: 16px;
     }
+  }
+  .abstand{
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  .border{
+    border: 1px solid rgba(0, 0, 0, 0.1);;
+  }
+  .kleiner-abstand{
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
   footer{
     width: 100%;
