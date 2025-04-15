@@ -37,7 +37,7 @@ function renderHauptgerichte() {
 
 function getGerichteTemplate(index) {
     return `<div class="abstand border">
-                <div class="name-button kleiner-abstand einrücken"><h4 id="name-${index}">name</h4><button>+</button></div>
+                <div class="name-button kleiner-abstand einrücken"><h4 id="name-${index}">name</h4><button class="add-button">+</button></div>
                 <p id="description-${index}" class="einrücken kleiner-abstand">beschreibung</p>
                 <p id="price-${index}" class="einrücken kleiner-abstand">preis</p>
             </div>`
