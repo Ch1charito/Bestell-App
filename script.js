@@ -97,7 +97,8 @@ function getNameIndex(name) {                               // eine function um 
 
 function addToCart(index) {
     let nameInput = document.getElementById(`name-${index}`).innerText;         // nameInput hat den aktuellen wert, da wir ihn in der template über die dynamische id mitgeben
-    let priceInput = document.getElementById(`price-${index}`).innerText;       // das selbe nur bei price
+    let rawPrice = document.getElementById(`price-${index}`).innerText;       // das selbe nur bei price
+    let priceInput = parseFloat(rawPrice.replace(" €", "").trim());             // damit ich später mit dem preis rechnen kann muss ich den string(rawPrice)in eine number parsen dazu replace ich € damit es weg ist und trim falls wir ein leerzeichen zu viel iwo haben
     let nameIndex = getNameIndex(nameInput);                                    // wir geben nameIndex den wert aus der function getNameIndex mit dem parameter aus nameInput und kriegen als ergebnis entweder den index oder -1 raus
     if (nameIndex === -1) {                                                     // wenn es also noch nicht im array ist wird dem cart array mehrere objekt hinzugefügt
         cart.push({
@@ -121,6 +122,8 @@ function renderCart() {
     for (let i = 0; i < cart.length; i++) {
         cartRef.innerHTML += getCartTemplate(i);
         renderCartName(i);
+        renderCartAmount(i);
+        renderCartPrice(i);
     }
     
 }
@@ -129,7 +132,7 @@ function renderCart() {
 function getCartTemplate(index){
     return `<div>
                 <p class="kleiner-abstand" id="cart-name-${index}">gericht name</p>
-                <div class="cart-display kleiner-abstand"><button class="cart-button">-</button><p id="cart-amount-${index}">amount</p><button class="cart-button">+</button><p id="cart-price-${index}">price</p><button class="cart-button">clear</button></div>
+                <div class="cart-display kleiner-abstand"><button class="cart-button">-</button><p id="cart-amount-${index}">amount</p><button class="cart-button">+</button><p id="cart-price-${index}">price</p><button onclick="removeItemFromCart(${index})" class="cart-button">&#128465;</button></div>
             </div>`
 }
 
@@ -148,5 +151,16 @@ function renderCartAmount(index) {
 
 function renderCartPrice(index) {
     let cartPriceRef = document.getElementById(`cart-price-${index}`);
-    cartPriceRef.innerHTML = cart[index].price;
+    let totalPrice = cart[index].price * cart[index].amount;                // ich berechnet hier den gesamt preis also price * amount
+    cartPriceRef.innerHTML = totalPrice.toFixed(2) + " €";
 }
+
+// eine function mit der wir wieder aus dem cart rauslöschen können
+function removeItemFromCart(index) {                                         // der parameter ist die aktuelle position der schlaufe durch die wir rendern (ist der dynamische index)
+    cart.splice(index, 1);                                                  // ich entferne es aus dem array und lasse dan das array cart neu rendern
+    renderCart();
+}
+    
+    
+    
+    
