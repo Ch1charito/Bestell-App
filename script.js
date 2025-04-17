@@ -117,8 +117,10 @@ function addToCart(index) {
 
 function renderCart() {
     let cartRef = document.getElementById('cart-content')
+    cartRef.innerHTML = "";
     for (let i = 0; i < cart.length; i++) {
         cartRef.innerHTML += getCartTemplate(i);
+        renderCartName(i);
     }
     
 }
@@ -126,7 +128,25 @@ function renderCart() {
 // ein template für das was in dem warenkorb drinnen ist
 function getCartTemplate(index){
     return `<div>
-                <p>gericht name</p>
-                <div><button>-</button><p>amount</p><button>+</button><p>price</p><button>clear</button></div>
+                <p class="kleiner-abstand" id="cart-name-${index}">gericht name</p>
+                <div class="cart-display kleiner-abstand"><button class="cart-button">-</button><p id="cart-amount-${index}">amount</p><button class="cart-button">+</button><p id="cart-price-${index}">price</p><button class="cart-button">clear</button></div>
             </div>`
+}
+
+// ich brauche functionen um name amount und price zu rendern
+
+function renderCartName(index) {
+    let cartNameRef = document.getElementById(`cart-name-${index}`);
+    cartNameRef.innerHTML = cart[index].name;
+    
+}
+
+function renderCartAmount(index) {
+    let cartAmountRef = document.getElementById(`cart-amount-${index}`);
+    cartAmountRef.innerHTML = cart[index].amount;
+}
+
+function renderCartPrice(index) {
+    let cartPriceRef = document.getElementById(`cart-price-${index}`);
+    cartPriceRef.innerHTML = cart[index].price;
 }
