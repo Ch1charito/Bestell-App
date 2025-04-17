@@ -132,7 +132,7 @@ function renderCart() {
 function getCartTemplate(index){
     return `<div>
                 <p class="kleiner-abstand" id="cart-name-${index}">gericht name</p>
-                <div class="cart-display kleiner-abstand"><button class="cart-button">-</button><p id="cart-amount-${index}">amount</p><button class="cart-button">+</button><p id="cart-price-${index}">price</p><button onclick="removeItemFromCart(${index})" class="cart-button">&#128465;</button></div>
+                <div class="cart-display kleiner-abstand"><button onclick="removeAmount(${index})" class="cart-button">-</button><p id="cart-amount-${index}">amount</p><button onclick="addAmount(${index})" class="cart-button">+</button><p id="cart-price-${index}">price</p><button onclick="removeItemFromCart(${index})" class="cart-button">&#128465;</button></div>
             </div>`
 }
 
@@ -160,7 +160,17 @@ function removeItemFromCart(index) {                                         // 
     cart.splice(index, 1);                                                  // ich entferne es aus dem array und lasse dan das array cart neu rendern
     renderCart();
 }
-    
-    
-    
-    
+
+// ich brauche nun nurnoch 2 functionen mit denen ich den amount enweder erhöhe oder -1 rechne
+
+function addAmount(index) {
+    cart[index].amount++;                       // amount +1
+    renderCart();
+}
+
+function removeAmount(index) {
+    if (cart[index].amount > 1){                // ich prüfe das amount auch größer 1 ist damit ich nicht unter 1 bei amount komme --> dafür ist dann reomveitemFrom cart function da
+        cart[index].amount--;                   // amount -1
+    }
+    renderCart();
+}
