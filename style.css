@@ -89,6 +89,10 @@
             border: none;
             cursor: pointer;
   }
+  .sticky{                          /* //position ist sticky und top ist 0 damit er weiß ab wo er es anhalten soll un sticky machen soll */
+    position: sticky;
+    top: 0;            
+  }
   .cart-display{
     display: flex;
     justify-content: space-evenly;

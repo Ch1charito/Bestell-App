@@ -125,6 +125,8 @@ function renderCart() {
         renderCartAmount(i);
         renderCartPrice(i);
     }
+    renderZwischensumme();
+    renderGesamt();
     
 }
 
@@ -173,4 +175,31 @@ function removeAmount(index) {
         cart[index].amount--;                   // amount -1
     }
     renderCart();
+}
+
+// ich brauche jetzt eine function mit der ich immer alle preise als summe zusammen rechne
+
+function calculateZwischensumme() {
+    let total = 0;                                  // ich starte mit der zwischensumme 0
+
+    for (let i = 0; i < cart.length; i++) {         // ich lasse durch cart wiederholen weil ich ja auf jedes objekt innerhalb des arrays zugreifen möchte
+        let item = cart[i];                         // ich speicher das aktuelle objekt in der zwischen variablen item wieder ---> also das objekt auf welches wir gerade innherlab der schleife zugreifen
+        let itemTotal = item.price * item.amount;   // ich lasse in der zwischenvariablen itemTotal dann jedes mal den Price mal dem Amount rechnen
+        total += itemTotal;                         // am ende füge ich die summe immer der zwischensumme zu ---> das heißt wenn die schleife neu beginnt wird der wert am ende immer hinzugefügt und nicht gleichgesetzt
+    }
+    return total;                                   // die gesamte summe wird dann return
+    
+}
+
+function renderZwischensumme() {                                        // die function führe ich bei renderCart aus weil ich ja will das der wert immer aktualisiert wird sobald ich etwas in meinem cart veränder
+    let total = calculateZwischensumme();                               // ich gebe meiner variablen den returnten wert aus der function bei der ich durch jedes objekt in meinem array wiederhole 
+    let zwischensummeRef = document.getElementById('zwischensumme');    // ich sage wo ich das anzeigen lassen will
+    zwischensummeRef.innerHTML = total.toFixed(2) + " €";               // ich lasse wie alles andere auch mit 2 nachkommastellen und € ins html einfügen
+}
+
+function renderGesamt() {
+    let zwischensumme = calculateZwischensumme();
+    let total = zwischensumme + 5;
+    let totalRef = document.getElementById('gesamtkosten');
+    totalRef.innerHTML = total.toFixed(2) + " €";
 }
