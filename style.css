@@ -22,6 +22,8 @@
   }
   main{
     display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
     #restaurant{
         width: calc(100% - 308px);
         @media (max-width: 600px){
@@ -74,6 +76,18 @@
         @media (max-width: 600px){
             display: none;
         }
+    }
+    #warenkorb-button{
+      position: fixed;
+      bottom: 30px;
+      cursor: pointer;
+      background-color: #1877F2;
+      color: white;
+      font-size: 16px;
+      width: 200px;
+      height: 30px;
+      border: none;
+      border-radius: 5px;
     }
     .einrücken{
         margin-left: 16px;
