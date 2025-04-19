@@ -203,3 +203,19 @@ function renderGesamt() {
     let totalRef = document.getElementById('gesamtkosten');
     totalRef.innerHTML = total.toFixed(2) + " €";
 }
+
+// jetzt brauche ich eine function mit der ich den warenkorb einblenden lassen kann
+
+function toggleCartOverlay() {
+    let overlayRef = document.getElementById('warenkorb-overlay');
+    overlayRef.classList.toggle('d_none');
+    getCartContent();
+    
+}
+
+function getCartContent() {
+    let contentRef = document.getElementById('overlay-content');
+    let cartcontent = document.getElementById('shop-cart');
+    contentRef.innerHTML = cartcontent.innerHTML;
+    
+}

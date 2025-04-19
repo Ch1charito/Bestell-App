@@ -1,149 +1,192 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    position: relative;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  scroll-behavior: smooth;
+}
+html {
+  font-family: "Varela Round", sans-serif;
+}
+
+header {
+  background-color: #ff8008;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  img {
+    height: 70px;
+    margin-left: 16px;
   }
-  html{
-    font-family: "Varela Round", sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  .overlay{
+    position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      background-color: white;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+      #overlay-content{
+        _background-color: white;
+        height: 500px;
+      }
+      .close-btn{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        color: black;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 2;
+      }
+  }
+  #restaurant {
+    width: calc(100% - 308px);
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+    img {
+      height: 400px;
+      width: 100%;
+      object-fit: cover;
+    }
+    h2 {
+      margin-top: 16px;
+    }
+    span {
+      color: #ff8008;
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+    #essen-bild {
+      height: 200px;
+      width: calc(100% - 32px);
+      object-fit: cover;
+    }
+    h3 {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+    .name-button {
+      display: flex;
+      justify-content: space-between;
+    }
+    .add-button {
+      color: #ff8008;
+      font-size: 16px;
+      font-weight: bold;
+      width: 20px;
+      background: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+  }
+  #shop-cart {
+    width: 308px;
+    #cart-content {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
+  #shop-cart.hidden{
+    display: none;
   }
 
-  header{
-    background-color: #ff8008;
-    width: 100%;
-    height: 120px;
+  .einrücken {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+#anzeigen-button {
+  display: none;
+  @media (max-width: 600px){
     display: flex;
-    align-items: center;
-    img{
-        height: 70px;
-        margin-left: 16px;
-    }
-  }
-  main{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-    #restaurant{
-        width: calc(100% - 308px);
-        @media (max-width: 600px){
-            width: 100%;
-        }
-        img{
-            height: 400px;
-            width: 100%;
-            object-fit: cover;
-        }
-        h2{
-            margin-top: 16px;
-        }
-        span{
-            color: #ff8008;
-            margin-top: 8px;
-            margin-bottom: 16px;
-        }
-        #essen-bild{
-            height: 200px;
-            width: calc(100% - 32px);
-            object-fit: cover;
-        }
-        h3{
-            margin-top: 16px;
-            margin-bottom: 16px;
-        }
-        .name-button{
-            display: flex;
-            justify-content: space-between;
-        }
-        .add-button{
-            color: #ff8008;
-            font-size: 16px;
-            font-weight: bold;
-            width: 20px;
-            background: transparent;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-        }
-    }
-    #shop-cart{
-        width: 308px;
-        #cart-content{
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        h2{
-          text-align: center;
-        }
-        @media (max-width: 600px){
-            display: none;
-        }
-    }
-    #warenkorb-button{
-      position: fixed;
-      bottom: 30px;
-      cursor: pointer;
-      background-color: #1877F2;
-      color: white;
-      font-size: 16px;
-      width: 200px;
-      height: 30px;
-      border: none;
-      border-radius: 5px;
-    }
-    .einrücken{
-        margin-left: 16px;
-        margin-right: 16px;
-    }
-  }
-  .cart-button{
-    color: #ff8008;
-            font-size: 16px;
-            font-weight: bold;
-            width: 20px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-  }
-  .sticky{                          /* //position ist sticky und top ist 0 damit er weiß ab wo er es anhalten soll un sticky machen soll */
-    position: sticky;
-    top: 0;            
-  }
-  .cart-display{
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .abstand{
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
-  .graue-schrift{
-    color: grey;
-  }
-  .space-between{
-    display: flex;
-    justify-content: space-between;
-  }
-  .border{
-    border: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  .kleiner-abstand{
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
-  footer{
-    width: 100%;
-    height: 120px;
-    background-color: #ff8008;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  justify-content: center;
+  margin-bottom: 16px;
+  #warenkorb-button {
+    cursor: pointer;
+    background-color: #1877f2;
     color: white;
-    img{
-      height: 40px;
-    }
-    a:hover{
-      cursor: pointer;
-      filter: drop-shadow(0px 0px 4px #ffffff);
-    }
-    
+    font-size: 16px;
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
   }
+  #warenkorb-button:hover {
+    cursor: pointer;
+    background-color: #61a0f1;
+  }
+  }
+  
+}
+.d_none{
+  display: none;
+}
+.cart-button {
+  color: #ff8008;
+  font-size: 16px;
+  font-weight: bold;
+  width: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.sticky {
+  /* //position ist sticky und top ist 0 damit er weiß ab wo er es anhalten soll un sticky machen soll */
+  position: sticky;
+  top: 0;
+}
+.cart-display {
+  display: flex;
+  justify-content: space-evenly;
+}
+.abstand {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.graue-schrift {
+  color: grey;
+}
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+.border {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.kleiner-abstand {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+footer {
+  width: 100%;
+  height: 120px;
+  background-color: #ff8008;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  img {
+    height: 40px;
+  }
+  a:hover {
+    cursor: pointer;
+    filter: drop-shadow(0px 0px 4px #ffffff);
+  }
+}
