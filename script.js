@@ -161,6 +161,7 @@ function renderCartPrice(index) {
 function removeItemFromCart(index) {                                         // der parameter ist die aktuelle position der schlaufe durch die wir rendern (ist der dynamische index)
     cart.splice(index, 1);                                                  // ich entferne es aus dem array und lasse dan das array cart neu rendern
     renderCart();
+    renderCartOverlay();
 }
 
 // ich brauche nun nurnoch 2 functionen mit denen ich den amount enweder erhöhe oder -1 rechne
@@ -168,6 +169,7 @@ function removeItemFromCart(index) {                                         // 
 function addAmount(index) {
     cart[index].amount++;                       // amount +1
     renderCart();
+    renderCartOverlay();
 }
 
 function removeAmount(index) {
@@ -175,6 +177,7 @@ function removeAmount(index) {
         cart[index].amount--;                   // amount -1
     }
     renderCart();
+    renderCartOverlay();
 }
 
 // ich brauche jetzt eine function mit der ich immer alle preise als summe zusammen rechne
@@ -213,9 +216,61 @@ function toggleCartOverlay() {
     
 }
 
-function getCartContent() {
+/* function getCartContent() {
     let contentRef = document.getElementById('overlay-content');
     let cartcontent = document.getElementById('shop-cart');
     contentRef.innerHTML = cartcontent.innerHTML;
     
+} */
+
+
+// ich brauche eine function mit der ich das cart render für das overlay
+function renderCartOverlay() {
+    let cartRef = document.getElementById('warenkorb-overlay')
+    cartRef.innerHTML = "";
+    for (let i = 0; i < cart.length; i++) {
+        cartRef.innerHTML += getCartOverlayTemplate(i);
+        renderCartOverlayName(i);
+        renderCartOverlayAmount(i);
+        renderCartOverlayPrice(i);
+    }
+    renderOverlayZwischensumme();
+    renderOverlayGesamt();
+}
+
+function getCartOverlayTemplate(index){
+    return `<div>
+                <p class="kleiner-abstand" id="overlay-cart-name-${index}">gericht name</p>
+                <div class="cart-display kleiner-abstand"><button onclick="removeAmount(${index})" class="cart-button">-</button><p id="overlay-cart-amount-${index}">amount</p><button onclick="addAmount(${index})" class="cart-button">+</button><p id="overlay-cart-price-${index}">price</p><button onclick="removeItemFromCart(${index})" class="cart-button">&#128465;</button></div>
+            </div>`
+}
+
+function renderCartOverlayName(index) {
+    let cartNameRef = document.getElementById(`overlay-cart-name-${index}`);
+    cartNameRef.innerHTML = cart[index].name;
+    
+}
+
+function renderCartOverlayAmount(index) {
+    let cartAmountRef = document.getElementById(`overlay-cart-amount-${index}`);
+    cartAmountRef.innerHTML = cart[index].amount;
+}
+
+function renderCartOverlayPrice(index) {
+    let cartPriceRef = document.getElementById(`overlay-cart-price-${index}`);
+    let totalPrice = cart[index].price * cart[index].amount;                // ich berechnet hier den gesamt preis also price * amount
+    cartPriceRef.innerHTML = totalPrice.toFixed(2) + " €";
+}
+
+function renderOverlayZwischensumme() {                                        // die function führe ich bei renderCart aus weil ich ja will das der wert immer aktualisiert wird sobald ich etwas in meinem cart veränder
+    let total = calculateZwischensumme();                               // ich gebe meiner variablen den returnten wert aus der function bei der ich durch jedes objekt in meinem array wiederhole 
+    let zwischensummeRef = document.getElementById('zwischensumme');    // ich sage wo ich das anzeigen lassen will
+    zwischensummeRef.innerHTML = total.toFixed(2) + " €";               // ich lasse wie alles andere auch mit 2 nachkommastellen und € ins html einfügen
+}
+
+function renderOverlayGesamt() {
+    let zwischensumme = calculateZwischensumme();
+    let total = zwischensumme + 5;
+    let totalRef = document.getElementById('gesamtkosten');
+    totalRef.innerHTML = total.toFixed(2) + " €";
 }
