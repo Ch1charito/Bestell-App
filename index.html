@@ -27,7 +27,11 @@
     <main>
         <div id="warenkorb-overlay" class="overlay d_none">
             <button class="close-btn" onclick="toggleCartOverlay()">X</button>
-            <div id="overlay-content"></div>
+            <div class="border"><h2 class="abstand">Warenkorb</h2></div>
+            <div class="einrücken" id="overlay-content"></div>
+            <div class="einrücken space-between kleiner-abstand graue-schrift"><p>Zwischensumme</p><p id="overlay-zwischensumme">Betrag in €</p></div>
+            <div class="einrücken space-between kleiner-abstand graue-schrift"><p>Lieferkosten</p><p>5.00 €</p></div>
+            <div class="einrücken space-between kleiner-abstand"><h4>Gesamt</h4><h4 id="overlay-gesamtkosten">0 €</h4></div>
         </div>
         <div id="restaurant">
             <img src="./img/main/strand.jpg" alt="Restaurant-Bild">

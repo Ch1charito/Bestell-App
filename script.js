@@ -212,7 +212,7 @@ function renderGesamt() {
 function toggleCartOverlay() {
     let overlayRef = document.getElementById('warenkorb-overlay');
     overlayRef.classList.toggle('d_none');
-    getCartContent();
+    renderCartOverlay();
     
 }
 
@@ -226,7 +226,7 @@ function toggleCartOverlay() {
 
 // ich brauche eine function mit der ich das cart render für das overlay
 function renderCartOverlay() {
-    let cartRef = document.getElementById('warenkorb-overlay')
+    let cartRef = document.getElementById('overlay-content')
     cartRef.innerHTML = "";
     for (let i = 0; i < cart.length; i++) {
         cartRef.innerHTML += getCartOverlayTemplate(i);
@@ -258,19 +258,19 @@ function renderCartOverlayAmount(index) {
 
 function renderCartOverlayPrice(index) {
     let cartPriceRef = document.getElementById(`overlay-cart-price-${index}`);
-    let totalPrice = cart[index].price * cart[index].amount;                // ich berechnet hier den gesamt preis also price * amount
+    let totalPrice = cart[index].price * cart[index].amount;                
     cartPriceRef.innerHTML = totalPrice.toFixed(2) + " €";
 }
 
-function renderOverlayZwischensumme() {                                        // die function führe ich bei renderCart aus weil ich ja will das der wert immer aktualisiert wird sobald ich etwas in meinem cart veränder
-    let total = calculateZwischensumme();                               // ich gebe meiner variablen den returnten wert aus der function bei der ich durch jedes objekt in meinem array wiederhole 
-    let zwischensummeRef = document.getElementById('zwischensumme');    // ich sage wo ich das anzeigen lassen will
-    zwischensummeRef.innerHTML = total.toFixed(2) + " €";               // ich lasse wie alles andere auch mit 2 nachkommastellen und € ins html einfügen
+function renderOverlayZwischensumme() {                                        
+    let total = calculateZwischensumme();                                
+    let zwischensummeRef = document.getElementById('overlay-zwischensumme');    
+    zwischensummeRef.innerHTML = total.toFixed(2) + " €";               
 }
 
 function renderOverlayGesamt() {
     let zwischensumme = calculateZwischensumme();
     let total = zwischensumme + 5;
-    let totalRef = document.getElementById('gesamtkosten');
+    let totalRef = document.getElementById('overlay-gesamtkosten');
     totalRef.innerHTML = total.toFixed(2) + " €";
 }

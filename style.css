@@ -24,30 +24,26 @@ header {
 main {
   display: flex;
   justify-content: center;
-  .overlay{
+  .overlay {
     position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100%;
-      background-color: white;
-      transition: opacity 0.3s ease;
-      z-index: 1;
-      #overlay-content{
-        _background-color: white;
-        height: 500px;
-      }
-      .close-btn{
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 30px;
-        color: black;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        z-index: 2;
-      }
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      color: black;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 2;
+    }
   }
   #restaurant {
     width: calc(100% - 308px);
@@ -102,7 +98,7 @@ main {
       display: none;
     }
   }
-  #shop-cart.hidden{
+  #shop-cart.hidden {
     display: none;
   }
 
@@ -113,28 +109,30 @@ main {
 }
 #anzeigen-button {
   display: none;
-  @media (max-width: 600px){
+  @media (max-width: 600px) {
     display: flex;
-  justify-content: center;
-  margin-bottom: 16px;
-  #warenkorb-button {
-    cursor: pointer;
-    background-color: #1877f2;
-    color: white;
-    font-size: 16px;
-    width: 200px;
-    height: 30px;
-    border: none;
-    border-radius: 5px;
+    justify-content: center;
+    margin-bottom: 16px;
+    #warenkorb-button {
+      cursor: pointer;
+      background-color: #1877f2;
+      color: white;
+      font-size: 16px;
+      width: 200px;
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+    }
+    #warenkorb-button:hover {
+      cursor: pointer;
+      background-color: #61a0f1;
+    }
   }
-  #warenkorb-button:hover {
-    cursor: pointer;
-    background-color: #61a0f1;
-  }
-  }
-  
 }
-.d_none{
+#overlay-content{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.d_none {
   display: none;
 }
 .cart-button {
