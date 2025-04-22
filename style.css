@@ -32,7 +32,7 @@ main {
     width: 100%;
     background-color: white;
     transition: opacity 0.3s ease;
-    z-index: 1;
+    z-index: 2;
     .close-btn {
       position: absolute;
       top: 20px;
@@ -134,14 +134,21 @@ main {
     justify-content: center;
     margin-bottom: 16px;
     #warenkorb-button {
+    position: fixed;
+    bottom: 125px;
+    right: 20px;
+    z-index: 1;
+      img{
+        height: 32px;
+      }
       cursor: pointer;
       background-color: #1877f2;
       color: white;
       font-size: 16px;
-      width: 200px;
-      height: 30px;
+      width: 65px;
+      height: 65px;
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
     }
     #warenkorb-button:hover {
       cursor: pointer;

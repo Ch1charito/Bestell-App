@@ -20,6 +20,11 @@ let hauptgerichte = [
         "price": 16.75,
         "descripton": "Risotto in einer Weißweinsoße mit Steinpilzen und frischem Parmesan"
     },
+    {
+        "name": "Pizza Diavola",
+        "price": 11.55,
+        "descripton": "eine knusprige Steinofenpizza mit einer pikanten Salami"
+    },
 ];
 
 
