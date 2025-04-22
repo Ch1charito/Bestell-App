@@ -88,6 +88,23 @@ main {
   }
   #shop-cart {
     width: 308px;
+    .bestellung-aufgeben{
+      display: flex;
+      justify-content: center;
+      button{
+        border: none;
+        background-color: #1877f2;
+        color: white;
+        border-radius: 5px;
+        width: 150px;
+        height: 30px;
+        cursor: pointer;
+      }
+      button:hover{
+        cursor: pointer;
+        background-color: #61a0f1;
+      }
+    }
     #cart-content {
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }

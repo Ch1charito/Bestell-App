@@ -274,3 +274,13 @@ function renderOverlayGesamt() {
     let totalRef = document.getElementById('overlay-gesamtkosten');
     totalRef.innerHTML = total.toFixed(2) + " €";
 }
+
+//ich brauche eine function die onclick auf dem bestellung aufgeben button in dem cart liegt --> die function soll den cart clearen und es soll Bestellung wurde erfolgreich aufgegeben gerendert werden
+
+function completeOrder() {
+    cart = [];
+    renderCart();
+    renderCartOverlay();
+    let orderRef = document.getElementById('erfolgreiche-bestellung');
+    orderRef.innerHTML = "Order placed successfully! 🎉";
+}
