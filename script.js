@@ -284,3 +284,11 @@ function completeOrder() {
     let orderRef = document.getElementById('erfolgreiche-bestellung');
     orderRef.innerHTML = "Order placed successfully! 🎉";
 }
+
+function completeOrderOverlay() {
+    cart = [];
+    renderCart();
+    renderCartOverlay();
+    let orderRef = document.getElementById('erfolgreiche-bestellung-overlay');
+    orderRef.innerHTML = "Order placed successfully! 🎉";
+}

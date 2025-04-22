@@ -91,6 +91,8 @@ main {
     .bestellung-aufgeben{
       display: flex;
       justify-content: center;
+      align-items: center;
+      flex-direction: column;
       button{
         border: none;
         background-color: #1877f2;
@@ -118,6 +120,7 @@ main {
   #shop-cart.hidden {
     display: none;
   }
+  
 
   .einrücken {
     margin-left: 16px;
@@ -148,6 +151,25 @@ main {
 }
 #overlay-content{
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.bestellung-aufgeben-overlay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  button{
+    border: none;
+    background-color: #1877f2;
+    color: white;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    cursor: pointer;
+  }
+  button:hover{
+    cursor: pointer;
+    background-color: #61a0f1;
+  }
 }
 .d_none {
   display: none;
